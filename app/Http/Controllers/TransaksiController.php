@@ -124,6 +124,8 @@ class TransaksiController extends Controller
                 
 
     if($request->tahun == ""){
+        $query->whereYear('transaksi.tgl', '=', date('Y'));
+    }else{
         $query->whereYear('transaksi.tgl', '=', $request->tahun);
     }
     if($request->bulan != NULL){
