@@ -34,8 +34,6 @@ Route::group(['middleware'=>['jwt.verify:admin']], function(){
     Route::post('paket', [PaketController::class, 'insert']);
     Route::put('paket/{id}', [PaketController::class, 'update']);
     Route::delete('paket/{id}', [PaketController::class, 'delete']);
-    Route::get('paket', [PaketController::class, 'getAll']);
-    Route::get('paket/{id_paket}', [PaketController::class, 'getById']);
 
 });
 
@@ -50,6 +48,9 @@ Route::group(['middleware'=>['jwt.verify:admin,kasir']], function(){
     Route::post('transaksi', [TransaksiController::class, 'insert']);
     Route::put('transaksi/status', [TransaksiController::class, 'updateStatus']);
     Route::put('transaksi/bayar', [TransaksiController::class, 'updateBayar']);
+
+    Route::get('paket', [PaketController::class, 'getAll']);
+    Route::get('paket/{id_paket}', [PaketController::class, 'getById']);
     
 
 
