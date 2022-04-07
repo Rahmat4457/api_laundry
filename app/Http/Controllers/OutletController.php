@@ -81,7 +81,7 @@ class OutletController extends Controller
     }
 
     public function getById($id){
-        $data["outlet"] = Outlet::where('id_outlet',$id)->get();
+        $data = Outlet::where('id_outlet',$id)->first();
 
         return response()->json([
             'success' => true,
